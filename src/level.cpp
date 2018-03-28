@@ -5,8 +5,8 @@
 
         std::string test;
 
-        sf::Font font;
-        font.loadFromFile("Arial.ttf");
+        sf::Image image;
+        image.loadFromFile("img/levels/testLevel.jpg");
 
 	}
 
