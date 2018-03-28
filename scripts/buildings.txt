@@ -1,0 +1,28 @@
+[filetype] = "building";
+
+##
+[building label] = "house"
+house ["health"] = "20"
+house ["armor"] = "1"
+house ["armor type"] = "light"
+house ["action"] = "create footman"
+house ["action"] = "upgrade footman damage"
+house ["action"] = "upgrade self"
+##
+
+##
+[building label] = "cottage"
+cottage ["health"] = "13"
+cottage ["armor"] = "2"
+cottage ["armor type"] = "heavy"
+cottage ["action"] = "upgrade self"
+##
+
+##
+[building label] = "IT WORKS YEEY"
+IT WORKS YEEY ["health"] = "27"
+IT WORKS YEEY ["armor"] = "2"
+IT WORKS YEEY ["armor type"] = "medium"
+IT WORKS YEEY ["action"] = "upgrade self"
+##
+

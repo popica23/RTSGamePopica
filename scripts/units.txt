@@ -1,0 +1,14 @@
+[filetype] = "unit";
+
+##
+[unit label] = "worker"
+worker ["index"] = 0
+worker ["health"] = 20
+worker ["caster"] = false
+worker ["damage"] = 2
+worker ["armor"] = 1
+worker ["speed"] = 3
+worker ["action"] = move
+worker ["action"] = attack
+worker ["action"] = build
+##
