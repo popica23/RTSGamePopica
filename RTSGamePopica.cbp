@@ -42,11 +42,15 @@
 		<Linker>
 			<Add directory="lib" />
 		</Linker>
+		<Unit filename="src/dbComunication.cpp" />
+		<Unit filename="src/dbComunication.h" />
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/game.h" />
 		<Unit filename="src/level.cpp" />
 		<Unit filename="src/level.h" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/menu.cpp" />
+		<Unit filename="src/menu.h" />
 		<Unit filename="src/scriptReader.cpp" />
 		<Unit filename="src/scriptReader.h" />
 		<Extensions>

@@ -54,5 +54,7 @@ void Game::menu(){
 void Game::setButtonsText(){
 
 
+    ButtonDesign.loadFromFile("img\assets\environment\grass_tile_1.jpg");
+
 }
 

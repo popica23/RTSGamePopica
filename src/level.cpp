@@ -6,7 +6,7 @@
         std::string test;
 
         sf::Image image;
-        image.loadFromFile("img/levels/testLevel.jpg");
+        //image.loadFromFile("img/levels/testLevel.jpg");
 
 	}
 
