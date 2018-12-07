@@ -32,6 +32,7 @@ public:
 
 	void setUserName(std::string);
 	std::string getUserName(){return userName;};
+	std::string getOptionText(int index){return options[index];};
 
 
 };

@@ -25,4 +25,3 @@ IT WORKS YEEY ["armor"] = "2"
 IT WORKS YEEY ["armor type"] = "medium"
 IT WORKS YEEY ["action"] = "upgrade self"
 ##
-

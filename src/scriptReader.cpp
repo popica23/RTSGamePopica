@@ -423,9 +423,6 @@ void scriptReader::printFileText(){
     buildingFileContent();
     writeBuildingObjectText();
     createBuilding();
-    for(unsigned int i = 0; i < buildingObjectText.size(); i++){
-
-    }
 }
 
 

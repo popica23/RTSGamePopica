@@ -20,16 +20,20 @@ private:
 
 	std::vector <std::string> levelList;
 
-	std::vector <sf::Image> levelImage;
+	sf::Image levelImage;
 	sf::Color pixelColor;
 
 public:
 
 	void loadLevelImage();
 
-	int readPixel(int,int,int);
+	int readPixel(int,int);
 
+	void buildMap();
+
+	int mapTileValue(int x, int y){return levelMap[x][y];}
 
 
 };
 #endif // LEVEL_H
+

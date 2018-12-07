@@ -4,7 +4,9 @@
 #include "scriptReader.h"
 #include "level.h"
 #include "texture_manager.h"
-#include "game_state.h"
+#include "game_state.hpp"
+#include "unit.hpp"
+#include "map.h"
 
 
 #include <SFML/Graphics.hpp>
@@ -16,8 +18,8 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <map>
 
-class GameState;
 
 class Game{
 
@@ -26,24 +28,43 @@ private:
 
     sf::Event event;
     sf::RenderWindow window;
+    std::vector<sf::Text> menuText;
 
-    std::map<std::string, sf::Texture> textures;
+
+    Map myMap;
 
     int tileId;
 
     scriptReader script;
     Level level;
 
-    sf::String title = "Gate Warlord";
+    sf::String title = "WARLORDS GATE";
 
     std::vector <std::string> slideTitle;
     int menuIndex = 0;
     std::vector <int> ButtonIndex;
-    std::vector <std::string> ButtonText;
+    //std::vector <std::string> ButtonText;
     sf::Texture ButtonDesign;
 
     int screenWidth;
     int screenHeight;
+
+    sf::Font font;
+
+    std::vector<sf::Sprite*> tile;
+
+    int viewX;
+    int viewY;
+
+    int speedViewX = 0;
+    int speedViewY = 0;
+
+    sf::View gameView;
+
+    sf::Clock clock;
+    sf::Time time;
+    float dt = 0;
+    int gameSpeed = 200;
 
 
 public:
@@ -57,6 +78,9 @@ public:
     void loadRadio();
     void loadButton();
     int tileRender();
+    void loadTextures();
+    void loadFont();
+    void loadMenuText(sf::Font&, std::string, int, int, int, sf::Text *tex);
 
     void setScreen(int, int, sf::String);
     void run();
@@ -71,13 +95,36 @@ public:
 
     void setButtonsText();
 
-    std::stack<GameState*> states;
+    void stateMachine();
+
+    void handleEvents();
+
+    void moveCamera();
+
+    void updateCamera();
+
     Texture_manager texmgr;
+
     sf::Sprite background;
 
-    void pushState(GameState* state);
+    enum GameStates{
+    STATE_START = 0,
+    STATE_MENU = 1,
+    STATE_OPTIONS = 2,
+    STATE_SETTINGS = 3,
+    STATE_LEVEL = 4,
+    STATE_GAME = 5
+    //.. etc
+    };
+
+    //void pushState(GameState* state);
+
 
 };
 
 
+
+
+
 #endif // GAME_H
+

@@ -14,9 +14,13 @@
 <?php
 
 
+$username = "Popica";
+
 ?>
 	
 Welcome <?php echo $username;?>
+
+
 </body>
 </html>
  

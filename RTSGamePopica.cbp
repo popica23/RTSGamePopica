@@ -45,14 +45,21 @@
 		<Unit filename="src/dbComunication.cpp" />
 		<Unit filename="src/dbComunication.h" />
 		<Unit filename="src/game.cpp" />
-		<Unit filename="src/game.h" />
+		<Unit filename="src/game.hpp" />
+		<Unit filename="src/game_state.hpp" />
 		<Unit filename="src/level.cpp" />
 		<Unit filename="src/level.h" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/map.cpp" />
+		<Unit filename="src/map.h" />
 		<Unit filename="src/menu.cpp" />
 		<Unit filename="src/menu.h" />
 		<Unit filename="src/scriptReader.cpp" />
 		<Unit filename="src/scriptReader.h" />
+		<Unit filename="src/texture_manager.cpp" />
+		<Unit filename="src/texture_manager.h" />
+		<Unit filename="src/tile.cpp" />
+		<Unit filename="src/tile.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
