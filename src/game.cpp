@@ -6,6 +6,7 @@
 void Game::run(){
 
 
+
     setScreen(800, 600, title);
 
     window.create(sf::VideoMode(getScreenW(),getScreenH()), title);
@@ -53,7 +54,6 @@ void Game::run(){
         while (window.pollEvent(event))
         {
             handleEvents();
-            //updateCamera();
 
 
         }
@@ -205,6 +205,7 @@ void Game::handleEvents(){
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
                 window.close();
             }
+
     moveCamera();
 
 }
@@ -214,37 +215,49 @@ void Game::moveCamera(){
 
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-                speedViewY -= gameSpeed * dt;
-                updateCamera();
+                speedViewY   -= gameSpeed * dt;
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
                 speedViewY += gameSpeed * dt;
-                updateCamera();
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
                 speedViewX -= gameSpeed * dt;
-                updateCamera();
 
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
                 speedViewX += gameSpeed * dt;
-                updateCamera();
     }
+
+
+
+            updateCamera();
 
             dt = time.asSeconds();
             time = clock.restart();
+
+
 
 }
 
 void Game::updateCamera(){
 
-        
+
             gameView.move(speedViewX,speedViewY);
             window.setView(gameView);
 
             speedViewY = 0;
             speedViewX = 0;
 
+
 }
+
+    bool Game::isAnyKeyPressed(){
+        for (int k = -1; k < sf::Keyboard::KeyCount; ++k)
+        {
+            if (sf::Keyboard::isKeyPressed(static_cast<sf::Keyboard::Key>(k)))
+                return true;
+        }
+        return false;
+    }

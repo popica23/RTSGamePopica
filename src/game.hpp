@@ -19,12 +19,17 @@
 #include <string>
 #include <fstream>
 #include <map>
+#include <pthread.h>
+
+#define NUM_THREADS 2
 
 
 class Game{
 
 private:
 
+
+    pthread_t threads[NUM_THREADS];
 
     sf::Event event;
     sf::RenderWindow window;
@@ -106,6 +111,8 @@ public:
     Texture_manager texmgr;
 
     sf::Sprite background;
+
+    bool isAnyKeyPressed();
 
     enum GameStates{
     STATE_START = 0,

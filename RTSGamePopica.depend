@@ -496,7 +496,7 @@
 	<streambuf>
 	<sstream>
 
-1544188331 source:c:\users\andreip\desktop\tot ce era pe desktop\lel game dev\rtsgamepopica\src\game.cpp
+1544191781 source:c:\users\andreip\desktop\tot ce era pe desktop\lel game dev\rtsgamepopica\src\game.cpp
 	"game.hpp"
 	"tile.h"
 
@@ -955,7 +955,7 @@
 
 1539081111 c:\users\andreip\desktop\tot ce era pe desktop\lel game dev\rtsgamepopica\src\game_state.h
 
-1544187190 c:\users\andreip\desktop\tot ce era pe desktop\lel game dev\rtsgamepopica\src\game.hpp
+1544191770 c:\users\andreip\desktop\tot ce era pe desktop\lel game dev\rtsgamepopica\src\game.hpp
 	"scriptReader.h"
 	"level.h"
 	"texture_manager.h"
@@ -971,6 +971,7 @@
 	<string>
 	<fstream>
 	<map>
+	<pthread.h>
 
 1539258378 c:\users\andreip\desktop\tot ce era pe desktop\lel game dev\rtsgamepopica\src\game_state.hpp
 	"game.hpp"
