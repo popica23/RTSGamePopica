@@ -68,6 +68,9 @@ void Game::run(){
         stateMachine();
 
 
+        moveCamera();
+
+
         //////////////////////////
         window.display();
     }
@@ -206,7 +209,6 @@ void Game::handleEvents(){
                 window.close();
             }
 
-    moveCamera();
 
 }
 
