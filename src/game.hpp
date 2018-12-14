@@ -61,8 +61,8 @@ private:
 
     std::vector<sf::Sprite*> tile;
 
-    int viewX;
-    int viewY;
+    int viewX = 0;
+    int viewY = 0;
 
     int speedViewX = 0;
     int speedViewY = 0;
@@ -79,6 +79,8 @@ private:
 
     int xx = 0;
     int yy = 0;
+
+
 
     sf::Sprite ground;
 

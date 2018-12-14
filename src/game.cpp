@@ -40,11 +40,6 @@ void Game::run(){
 
         myMap.nameImages();
 
-        for(int i = 0; i < 3; i++){
-            ground.setTexture(texmgr.getRef(myMap.getImageName(i)));
-            tile.push_back(&ground);
-        }
-
 
 
 
@@ -75,16 +70,13 @@ void Game::run(){
                 gameView.setSize(viewSizeX,viewSizeY);
                 updateCamera();
             }
+
+            //std::cout<<"zoomed by "<< 60 * event.mouseWheel.delta<<"\n";
         }
 
 
             //if( event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape ) window.close();
 
-            if( event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left )
-            {
-                mouse_position.x = event.mouseButton.x;
-                mouse_position.y = event.mouseButton.y;
-            }
 
         }
 
@@ -97,17 +89,17 @@ void Game::run(){
         //menuText[0].setPosition(20,20);
         window.draw(ground);
 
-        /*
-        if( event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left )
+
+        if(event.mouseButton.button == sf::Mouse::Left)
         {
             sf::RectangleShape box;
-            box.setPosition( mouse_position.x , mouse_position.y );
-            box.setSize( sf::Vector2f( sf::Mouse::getPosition().x - mouse_position.x , sf::Mouse::getPosition().y - mouse_position.y ) );
+            box.setPosition( (sf::Mouse::getPosition(window).x + viewX) * viewSizeX , sf::Mouse::getPosition(window).y + viewY );
+            box.setSize( sf::Vector2f( 40 , 40 ) );
             box.setFillColor( sf::Color::Red );
-            std::cout<<"You clicked";
+            std::cout<<sf::Mouse::getPosition(window).x<<"\n";
             window.draw( box );
         }
-        */
+
 
         stateMachine();
 
@@ -216,6 +208,12 @@ void Game::stateMachine(){
         case STATE_GAME:
 
 
+        for(int i = 0; i < 3; i++){
+            ground.setTexture(texmgr.getRef(myMap.getImageName(i)));
+            tile.push_back(&ground);
+        }
+
+
         for(int y = 0; y < myMap.y-1; y++){
             yy = 0;
             for(int x = 0; x < myMap.x-1; x++){
@@ -227,6 +225,7 @@ void Game::stateMachine(){
                     std::cout<<"You fucked up mate!";
                 }
                 window.draw(*tile[myMap.getImgId(y,x)]);
+                //std::cout<<myMap.getImgId(y,x)<<"\n";
             }
             xx+=1;
         }
@@ -247,9 +246,9 @@ void Game::stateMachine(){
 
 void Game::handleEvents(){
 
-    if (event.type == sf::Event::Closed){
-                window.close();
-            }
+    // if (event.type == sf::Event::Closed){
+    //             window.close();
+    //         }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
                 window.close();
             }
@@ -282,13 +281,6 @@ void Game::moveCamera(){
 
 
 
-
-
-
-
-
-
-
             updateCamera();
 
             dt = time.asSeconds();
@@ -303,6 +295,9 @@ void Game::updateCamera(){
 
             gameView.move(speedViewX,speedViewY);
             window.setView(gameView);
+
+            viewX += speedViewX;
+            viewY += speedViewY;
 
             speedViewY = 0;
             speedViewX = 0;
