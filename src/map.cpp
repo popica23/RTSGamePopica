@@ -10,25 +10,28 @@ void Map::buildMatrix(){
 		std::vector<std::string> imgNameListRow;
 		//- You'll thank me later
 		for(int xx = 0; xx < image.getSize().x; xx++){
-			std::cout << "Iteration [" << xx << "," << yy << "]\n";
+			//std::cout << "Iteration [" << xx << "," << yy << "]\n";
 			sf::Color tmp_col = image.getPixel(xx,yy);
 
-			std::cout<<(int)tmp_col.r<<" ";
-			std::cout<<(int)tmp_col.g<<" ";
-			std::cout<<(int)tmp_col.b<<" ";
-			std::cout<<"\n";
+			//std::cout<<(int)tmp_col.r<<" ";
+			//std::cout<<(int)tmp_col.g<<" ";
+			//std::cout<<(int)tmp_col.b<<" ";
+			//std::cout<<"\n";
 
 			if(is_same_color(tmp_col,0,255,0)){
 				imgNameListRow.push_back("grass_tile_1");
-				std::cout<<"grass 1\n";	
+				//std::cout<<"grass 1\n";
+				imgId.push_back(0);
 			}
 			if(is_same_color(tmp_col,255,0,0)){
 				imgNameListRow.push_back("testingGrass");
-				std::cout<<"testGrassn\n";
+				//std::cout<<"testGrassn\n";
+				imgId.push_back(1);
 			}
 			if(is_same_color(tmp_col,0,0,255)){
 				imgNameListRow.push_back("water_tile_1");
-				std::cout<<"water 1\n";
+				//std::cout<<"water 1\n";
+				imgId.push_back(2);
 			}
 		}
 		std::cout<<"\n";
@@ -41,7 +44,7 @@ void Map::buildMatrix(){
 	for(int yy = 0; yy < image.getSize().y-1; yy++){
 		//- You'll thank me later
 		for(int xx = 0; xx < image.getSize().x-1; xx++){
-			std::cout<<imgNameList[xx][yy]<<"\n";
+			//std::cout<<imgNameList[xx][yy]<<"\n";
 		}
 	}
 }
@@ -51,4 +54,11 @@ bool Map::is_same_color(sf::Color color, uint8_t r, uint8_t g, uint8_t b)
     if(color.r == r && color.g == g && color.b == b)
         return true;
     return false;
+}
+
+void Map::nameImages(){
+
+		imgName.push_back("grass_tile_1");
+		imgName.push_back("testingGrass");
+		imgName.push_back("water_tile_1");
 }

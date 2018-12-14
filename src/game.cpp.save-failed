@@ -22,7 +22,7 @@ void Game::run(){
 
 
 
-    //mouse_position = sf::Mouse::getPosition( window );
+    mouse_position = sf::Mouse::getPosition( window );
 
 
     sNode *nodes = nullptr;
@@ -46,8 +46,6 @@ void Game::run(){
         }
 
 
-
-
         while (window.isOpen()){
 
 
@@ -58,18 +56,18 @@ void Game::run(){
         while (window.pollEvent(event))
         {
 
-            //mouse_position = sf::Mouse::getPosition( window );
+            mouse_position = sf::Mouse::getPosition( window );
             handleEvents();
 
-        if(sf::Event::MouseWheelMoved){
-            if(event.mouseWheel.delta < 0 && viewSizeX < 1300){
+               if(sf::Event::MouseWheelMoved){
+        if(event.mouseWheel.delta < 0 && viewSizeX < 1300){
                 viewSizeX += 60;
                 viewSizeY += 60;
                 gameView.setSize(viewSizeX,viewSizeY);
                 updateCamera();
             }
 
-            else if(event.mouseWheel.delta > 0 && viewSizeX > 800){
+        else if(event.mouseWheel.delta > 0 && viewSizeX > 800){
                 viewSizeX -= 60;
                 viewSizeY -= 60;
                 gameView.setSize(viewSizeX,viewSizeY);
@@ -86,28 +84,31 @@ void Game::run(){
                 mouse_position.y = event.mouseButton.y;
             }
 
+
+
+
+
+
+
         }
 
         window.clear(sf::Color (50,200,50));
         ////////////////////////////
         //Stuff will be drawn here//
-
-
         ////////////////////////////
         //menuText[0].setPosition(20,20);
+        ground.resize(1000,1000);
         window.draw(ground);
 
-        /*
         if( event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left )
         {
             sf::RectangleShape box;
             box.setPosition( mouse_position.x , mouse_position.y );
             box.setSize( sf::Vector2f( sf::Mouse::getPosition().x - mouse_position.x , sf::Mouse::getPosition().y - mouse_position.y ) );
-            box.setFillColor( sf::Color::Red );
-            std::cout<<"You clicked";
+            box.setFillColor( sf::Color::White );
             window.draw( box );
         }
-        */
+
 
         stateMachine();
 
@@ -219,19 +220,19 @@ void Game::stateMachine(){
         for(int y = 0; y < myMap.y-1; y++){
             yy = 0;
             for(int x = 0; x < myMap.x-1; x++){
-                tile[myMap.getImgId(y,x)]->setPosition(xx * 32, yy * 32);
+                //tile[myMap.getImgId(y,x)]->setPosition(xx * 32, yy * 32);
 
-                //debugLog += "y:" + std::to_string(y) + " || x:" + std::to_string(x) + "\n";
+                //std::cout<<"y:"<<y<<" || x:"<< x<<" \n";
 
-                if(!tile[myMap.getImgId(y,x)]){
-                    std::cout<<"You fucked up mate!";
-                }
-                window.draw(*tile[myMap.getImgId(y,x)]);
+                //std::cout<<myMap.y<<" "<<myMap.x<<"\n";
+
+                //std::cout<<" || "<<myMap.getImgId(y,x)<<" \n";
+                //window.draw(*tile[myMap.getImgId(y,x)]);
+                //std::cout<<"Kitler, why?\n";
             }
             xx+=1;
         }
 
-        //std::cout<<debugLog;
 
         break;
 

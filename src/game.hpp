@@ -7,6 +7,7 @@
 #include "game_state.hpp"
 #include "unit.hpp"
 #include "map.h"
+#include "tile.h"
 
 
 #include <SFML/Graphics.hpp>
@@ -28,12 +29,14 @@ class Game{
 
 private:
 
-
-    pthread_t threads[NUM_THREADS];
+    sf::Vector2i mouse_position;
 
     sf::Event event;
     sf::RenderWindow window;
     std::vector<sf::Text> menuText;
+
+    float viewSizeX = 1200;
+    float viewSizeY = 1200;
 
 
     Map myMap;
@@ -70,6 +73,16 @@ private:
     sf::Time time;
     float dt = 0;
     int gameSpeed = 200;
+
+    Texture_manager texmgr;
+
+
+    int xx = 0;
+    int yy = 0;
+
+    sf::Sprite ground;
+
+    std::string debugLog = "";
 
 
 public:
@@ -108,8 +121,6 @@ public:
 
     void updateCamera();
 
-    Texture_manager texmgr;
-
     sf::Sprite background;
 
     bool isAnyKeyPressed();
@@ -123,6 +134,9 @@ public:
     STATE_GAME = 5
     //.. etc
     };
+
+    GameStates state;
+    sf::Text ButtonTex;
 
     //void pushState(GameState* state);
 
